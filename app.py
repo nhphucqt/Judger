@@ -113,7 +113,9 @@ def list_tasks():
     tasks_list = list(filter(lambda task: os.path.isdir(tasks_path+task), tasks_list))
     tasks_list.sort(key=lambda e: e.lower())
 
-    maxLen = max(map(lambda task: len(task), tasks_list))
+    maxLen = 0
+    if len(tasks_list) > 0:
+        maxLen = max(map(lambda task: len(task), tasks_list))
     maxIdLen = len(str(len(tasks_list)))
 
     print()
